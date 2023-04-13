@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-	int cap, time, placements, counter = 0, total_placements = 0;
+	int cap, time, counter = 0;
 	bool impossible = false;
 cin >> cap >> time;
 	for (int x = 0; x < time; x++)
@@ -50,7 +50,6 @@ cin >> cap >> time;
 		}
 		
 	}
-	placements = counter;
 	if (impossible = true)
 	{
 		cout << "Impossible";
@@ -60,7 +59,7 @@ cin >> cap >> time;
 		cout << "Capacity Exceeded " << counter - cap << endl;
 		return 0;
 	}
-	total_placements = max(total_placements, placements);
+	
 	if ((counter == 0) && (impossible = false))
 	{
 		cout << "Empty Room";
