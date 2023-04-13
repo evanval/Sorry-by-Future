@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-	int cap, time, counter = 0;
+	int cap, time, counter = 0, imp = 0;
 	bool impossible = false;
 cin >> cap >> time;
 	for (int x = 0; x < time; x++)
@@ -15,12 +15,17 @@ cin >> cap >> time;
 		}
 		if (use.at(use.length() - 1) == 'L')
 		{
-			if (counter >= 0)
+			
 			{
 			for (int i = 0; i < use.length(); i++) {
 				if (use.at(i) == ('I'))
 				{
 					counter = counter - 1;
+					if (counter < 0)
+					{
+						impossible = true;
+						imp = abs(counter);
+					}
 				}
 				else
 				{
@@ -45,15 +50,11 @@ cin >> cap >> time;
 				}
 			}
 		}
-		if (counter <= 0)
-		{
-			impossible = true;
-		}
 		
 	}
 	if (impossible == true)
 	{
-		cout << "Impossible";
+		cout << "Impossible\n" << imp;
 	}
 	if ((cap < counter) && (impossible == false))
 	{
