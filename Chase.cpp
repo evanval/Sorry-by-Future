@@ -15,7 +15,7 @@ cin >> cap >> time;
 		}
 		if (use.at(use.length() - 1) == 'L')
 		{
-			if (counter != 0 || counter > 0)
+			if (counter >= 0)
 			{
 			for (int i = 0; i < use.length(); i++) {
 				if (use.at(i) == ('I'))
@@ -30,10 +30,7 @@ cin >> cap >> time;
 			
 			
 			}
-			else if (counter == 0 || counter < 0)
-			{
-				impossible = true;
-			}
+			
 		}
 		else if (use.at(use.length() - 1) == 'E')
 		{
@@ -48,23 +45,26 @@ cin >> cap >> time;
 				}
 			}
 		}
+		if (counter <= 0)
+		{
+			impossible = true;
+		}
 		
 	}
-	if (impossible = true)
+	if (impossible == true)
 	{
 		cout << "Impossible";
 	}
-	if ((cap < counter) && (impossible = false))
+	if ((cap < counter) && (impossible == false))
 	{
 		cout << "Capacity Exceeded " << counter - cap << endl;
 		return 0;
 	}
-	
-	if ((counter == 0) && (impossible = false))
+	if ((counter == 0) && (impossible == false))
 	{
 		cout << "Empty Room";
 	}
-	else if (impossible = false)
+	else if (impossible == false)
 	{
 		cout << counter << " People In The Room";
 	}
